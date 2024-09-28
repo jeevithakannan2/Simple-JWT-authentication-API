@@ -2,7 +2,6 @@ const express = require("express");
 const { LOGIN, REGISTER, MOVIES } = require("../constants/path");
 const {
   getAllMoviesController,
-  getMovieController,
   createMovieController,
   updateMovieController,
   deleteMovieController,

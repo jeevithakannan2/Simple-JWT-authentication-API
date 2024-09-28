@@ -9,10 +9,12 @@ const { login, register } = require("../services/auth");
 const loginController = async (req, res, next) => {
   try {
     const response = await login(req.body);
-    if (response) {
+    if (response!=="Invalid username or password") {
       res
         .status(200)
-        .send({ status: 200, message: "login successfull", token: response });
+        .send({ message: "login successfull", token: response });
+    } else {
+      res.status(401).send({ message: "Invalid credentials" });
     }
   } catch (error) {
     next(error);
