@@ -12,9 +12,9 @@ app.use("/", authRoutes);
 app.use("/movies", moviesRoutes);
 
 mongoose.connect('mongodb://localhost:27017/STEP').then(() => {
-   console.log("Database Connected");
+  console.log("Database Connected");
 
-   app.listen(process.env.PORT, () => {
+  app.listen(process.env.PORT, () => {
     console.log(`App is listening at port ${process.env.PORT}`);
   });
 }) 

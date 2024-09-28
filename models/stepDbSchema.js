@@ -7,13 +7,13 @@ const userSchema = new mongoose.Schema({
 });
 
 const movieSchema = new mongoose.Schema({
-    movieId: String,
-    movieName: String,
-    genre: String,
-    favorite: String,
-    rating: Number,
-    moviePoster: String,
-    moviePlot: String
+  movieId: String,
+  movieName: String,
+  genre: String,
+  favorite: String,
+  rating: Number,
+  moviePoster: String,
+  moviePlot: String
 })
 
 const Users = mongoose.model('Users', userSchema);
