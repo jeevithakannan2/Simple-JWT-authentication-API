@@ -8,13 +8,16 @@ const jwt = require("jsonwebtoken");
  */
 const login = async (requestBody) => {
   const { userId, password } = requestBody;
-    const user = await Users.findOne({ userId: userId });
-    if (user.password === password) {
-      const token = jwt.sign({ username: user.userName }, process.env.SECRET_KEY, { expiresIn: "3000s" });
-      return token;
-    } else {
-      return "Invalid username or password";
-    }
+  if (!userId || !password) {
+    return "Invalid username or password";
+  }
+  const user = await Users.findOne({ userId: userId });
+  if (user.password === password) {
+    const token = jwt.sign({ username: user.userName }, process.env.SECRET_KEY, { expiresIn: "3000s" });
+    return token;
+  } else {
+    return "Invalid username or password";
+  }
 };
 
 /**
